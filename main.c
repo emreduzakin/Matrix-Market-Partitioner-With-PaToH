@@ -212,9 +212,6 @@ int main(int argc, char *argv[])
     PaToH_Parameters args;
     int _c, _n, _nconst, *cwghts, *nwghts, *xpins, *pins, *partvec, cut, *partweights;
 
-    args.seed = atoi(argv[5]);
-    args._k = atoi(argv[3]);
-
     _c = M;
     _n = N;
     _nconst = 1;
@@ -230,6 +227,8 @@ int main(int argc, char *argv[])
     {
         nwghts[i] = 1;
     }
+
+    // nwghts = NULL;
 
     /* Convert COO to CSC, and write the column pointer and row indices to xpins and pins respectivelly. */
 
@@ -320,6 +319,9 @@ int main(int argc, char *argv[])
         printf("Please use either 'conpart' or 'cutpart' as the partition type.\n");
         exit(1);
     }
+
+    args._k = atoi(argv[3]);
+    args.seed = atoi(argv[5]);
 
     PaToH_Alloc(&args, _c, _n, _nconst, cwghts, nwghts, xpins, pins);
     clock_t partitioning_begins = clock();
