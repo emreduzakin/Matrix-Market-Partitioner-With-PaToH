@@ -6,6 +6,11 @@ It first reads a matrix market file in coordinate (COO) format, then converts th
 
 # How to use
 
+This program can be compiled and used on its own and does not require any specific packages or software to be installed. 
+
+After placing all the files in this repository under the same directory, either use "gcc main.c libpatoh_linux.a -lm" or 
+"gcc main.c libpatoh_macOS.a" to compile the program. This command will give you a single executable file named "a.out".
+
 This executable takes command line arguments as input. The general structure of the command to run the program is like the 
 following: "./a.out [martix-market-pathname] [partition-type] [desired amount of partitions] [partition-quality] [seed]"
 
